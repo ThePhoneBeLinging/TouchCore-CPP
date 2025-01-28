@@ -12,5 +12,6 @@ int main()
     while (true)
     {
     }
+    delete ic2Listener;
     return 0;
 }
