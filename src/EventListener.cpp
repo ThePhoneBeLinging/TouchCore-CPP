@@ -31,9 +31,9 @@ EventListener::EventListener(const std::string& pathToFile) : keepRunning_(true)
     memset(input_data,0,input_size);
     fds[0].events = POLLIN;
 
-    auto runFunction = [&ret,&fds,&input_data] () -> void
+    auto runFunction = [&ret,&fds,&input_data, this] () -> void
     {
-        while(true)
+        while(keepRunning_)
         {
             ret = poll(fds, 1, timeout_ms);
             if(ret>0)
@@ -62,6 +62,7 @@ EventListener::EventListener(const std::string& pathToFile) : keepRunning_(true)
                 printf("timeout\n");
             }
         }
+        delete input_data;
     };
     listenerThread_ = std::thread(runFunction);
 }
@@ -71,12 +72,4 @@ EventListener::~EventListener()
     keepRunning_ = false;
     cv_.notify_all();
     listenerThread_.join();
-}
-
-void EventListener::run()
-{
-    while(keepRunning_)
-    {
-
-    }
 }

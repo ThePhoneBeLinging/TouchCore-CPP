@@ -15,7 +15,6 @@ public:
     explicit EventListener(const std::string& pathToFile);
     ~EventListener();
 private:
-    void run();
     std::atomic_bool keepRunning_;
     std::thread listenerThread_;
     std::condition_variable cv_;
