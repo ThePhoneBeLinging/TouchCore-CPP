@@ -49,7 +49,6 @@ EventListener::EventListener(const std::string& pathToFile, const std::shared_pt
                     else
                     {
                         eventController_->notifyOfEvent(*input_data);
-                        //printf("time=%ld.%06lu type=%hu code=%hu value=%u\n", input_data->time.tv_sec, input_data->time.tv_usec, input_data->type, input_data->code, input_data->value);
                         memset(input_data,0,input_size);
                     }
                 }
