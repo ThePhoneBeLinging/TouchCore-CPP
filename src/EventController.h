@@ -4,7 +4,7 @@
 
 #ifndef EVENTCONTROLLER_H
 #define EVENTCONTROLLER_H
-#include "InputEvent.h"
+#include "linux/input.h"
 
 
 class EventController

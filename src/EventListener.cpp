@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <poll.h>
-#include "InputEvent.h"
+#include <linux/input.h>
 #include <cstring>
 #include <cstdio>
 #include <sys/time.h>

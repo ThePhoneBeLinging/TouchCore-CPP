@@ -3,8 +3,9 @@
 //
 
 #include "EventController.h"
-
 #include <iostream>
+#include <linux/input-event-codes.h>
+#include <linux/input.h>
 
 void EventController::notifyOfEvent(input_event event)
 {
