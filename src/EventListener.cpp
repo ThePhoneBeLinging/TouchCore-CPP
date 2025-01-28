@@ -12,7 +12,7 @@
 
 #include <stdexcept>
 
-EventListener::EventListener(const std::string& pathToFile) : keepRunning_(true)
+EventListener::EventListener(const std::string& pathToFile, const std::shared_ptr<EventController>& eventController) : eventController_(eventController),keepRunning_(true)
 {
     const int timeout_ms = -1;
     const char* input_dev = pathToFile.c_str();
@@ -48,7 +48,8 @@ EventListener::EventListener(const std::string& pathToFile) : keepRunning_(true)
                     }
                     else
                     {
-                        printf("time=%ld.%06lu type=%hu code=%hu value=%u\n", input_data->time.tv_sec, input_data->time.tv_usec, input_data->type, input_data->code, input_data->value);
+                        eventController_->notifyOfEvent(*input_data);
+                        //printf("time=%ld.%06lu type=%hu code=%hu value=%u\n", input_data->time.tv_sec, input_data->time.tv_usec, input_data->type, input_data->code, input_data->value);
                         memset(input_data,0,input_size);
                     }
                 }

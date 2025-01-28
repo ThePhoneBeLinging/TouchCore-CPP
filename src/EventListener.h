@@ -8,13 +8,16 @@
 #include <string>
 #include <thread>
 
+#include "EventController.h"
+
 
 class EventListener
 {
 public:
-    explicit EventListener(const std::string& pathToFile);
+    explicit EventListener(const std::string& pathToFile, const std::shared_ptr<EventController>& eventController);
     ~EventListener();
 private:
+    std::shared_ptr<EventController> eventController_;
     std::atomic_bool keepRunning_;
     std::thread listenerThread_;
     std::condition_variable cv_;

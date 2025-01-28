@@ -5,4 +5,6 @@ project(TouchScreenSupport)
 add_executable(TouchScreenSupport main.cpp
         EventListener.cpp
         EventListener.h
-        InputEvent.h)
+        InputEvent.h
+        EventController.cpp
+        EventController.h)
