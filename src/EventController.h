@@ -4,7 +4,9 @@
 
 #ifndef EVENTCONTROLLER_H
 #define EVENTCONTROLLER_H
-#include "FingersObject.h"
+#include <memory>
+
+#include "AbsEventController.h"
 #include "linux/input.h"
 
 
@@ -14,9 +16,7 @@ public:
     EventController();
     void notifyOfEvent(const input_event& event);
 private:
-    void handleAbsEvents(const input_event& event);
-    std::unique_ptr<FingersObject> fingers_;
-    int activeSlot_;
+    std::unique_ptr<AbsEventController> absEventController_;
 };
 
 

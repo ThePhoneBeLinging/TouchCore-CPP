@@ -6,7 +6,7 @@
 #include <iostream>
 #include <linux/input.h>
 
-EventController::EventController() : fingers_(std::make_unique<FingersObject>(5)), activeSlot_(0)
+EventController::EventController() : absEventController_(std::make_unique<AbsEventController>())
 {
 
 }
@@ -25,22 +25,10 @@ void EventController::notifyOfEvent(const input_event& event)
         }
     case EV_ABS:
         {
-            handleAbsEvents(event);
+            absEventController_->handleEvent(event);
             break;
         }
     default:
         std::cout << "Unknown Event: " << event.type << std::endl;
     }
-
-
-}
-
-void EventController::handleAbsEvents(const input_event& event)
-{
-    if (event.code == ABS_MT_SLOT)
-    {
-        activeSlot_ = event.value;
-        std::cout << activeSlot_ << std::endl;
-    }
-    std::cout << event.code << std::endl;
 }
