@@ -21,6 +21,7 @@ void EventController::notifyOfEvent(input_event event)
     case EV_ABS:
         {
             handleAbsEvents(event);
+            break;
         }
     default:
         std::cout << "Unknown Event: " << event.type << std::endl;
@@ -34,6 +35,7 @@ void EventController::handleAbsEvents(input_event event)
     if (event.code == ABS_MT_SLOT)
     {
         activeSlot_ = event.value;
+        std::cout << activeSlot_ << std::endl;
     }
-    std::cout << activeSlot_ << std::endl;
+    std::cout << event.code << std::endl;
 }
