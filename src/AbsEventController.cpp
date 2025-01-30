@@ -34,6 +34,7 @@ void AbsEventController::handleEvent(const input_event& event)
             {
                 fingerPositions_[activeSlot_]->first = event.value;
             }
+            break;
         }
         case ABS_MT_POSITION_Y:
         {
@@ -45,6 +46,7 @@ void AbsEventController::handleEvent(const input_event& event)
             {
                 fingerPositions_[activeSlot_]->second = event.value;
             }
+            break;
         }
         case ABS_MT_TRACKING_ID:
         {
@@ -52,6 +54,7 @@ void AbsEventController::handleEvent(const input_event& event)
             {
                 delete fingerPositions_[activeSlot_];
             }
+            break;
         }
         default:
         {
