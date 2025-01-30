@@ -20,7 +20,7 @@ void EventController::notifyOfEvent(input_event event)
         }
     case EV_ABS:
         {
-            break;
+            handleAbsEvents(event);
         }
     default:
         std::cout << "Unknown Event: " << event.type << std::endl;
