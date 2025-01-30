@@ -16,6 +16,7 @@ AbsEventController::AbsEventController() : activeSlot_(0)
 
 void AbsEventController::handleEvent(const input_event& event)
 {
+    std::cout << "Starting event handling with: " << activeSlot_ << std::endl;
     switch (event.code)
     {
         case ABS_MT_SLOT:
