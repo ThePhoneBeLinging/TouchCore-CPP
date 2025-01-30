@@ -12,6 +12,8 @@ class EventController
 public:
     EventController() = default;
     void notifyOfEvent(input_event event);
+private:
+    int activeSlot_;
 };
 
 

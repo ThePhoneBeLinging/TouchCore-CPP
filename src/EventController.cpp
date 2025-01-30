@@ -4,10 +4,13 @@
 
 #include "EventController.h"
 #include <iostream>
-#include <linux/input-event-codes.h>
 #include <linux/input.h>
 
 void EventController::notifyOfEvent(input_event event)
 {
-    std::cout << event.type << " " << event.code << " " << event.value << "\n";
+    if (event.code == ABS_MT_SLOT)
+    {
+        activeSlot_ = event.value;
+    }
+    std::cout << activeSlot_ << std::endl;
 }
