@@ -47,7 +47,10 @@ void AbsEventController::handleEvent(const input_event& event)
         }
         case ABS_MT_TRACKING_ID:
         {
-            delete fingerPositions_[activeSlot_];
+            if (event.value == -1)
+            {
+                delete fingerPositions_[activeSlot_];
+            }
         }
         default:
         {
