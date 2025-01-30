@@ -13,6 +13,7 @@ public:
     EventController() = default;
     void notifyOfEvent(input_event event);
 private:
+    void handleAbsEvents(input_event event);
     int activeSlot_;
 };
 
