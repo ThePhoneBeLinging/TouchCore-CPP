@@ -6,4 +6,8 @@ add_executable(TouchScreenSupport main.cpp
         EventListener.cpp
         EventListener.h
         EventController.cpp
-        EventController.h)
+        EventController.h
+        Finger.cpp
+        Finger.h
+        FingersObject.cpp
+        FingersObject.h)

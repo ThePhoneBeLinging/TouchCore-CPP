@@ -6,7 +6,12 @@
 #include <iostream>
 #include <linux/input.h>
 
-void EventController::notifyOfEvent(input_event event)
+EventController::EventController() : fingers_(std::make_unique<FingersObject>(5)), activeSlot_(0)
+{
+
+}
+
+void EventController::notifyOfEvent(const input_event& event)
 {
     switch (event.type)
     {
@@ -30,7 +35,7 @@ void EventController::notifyOfEvent(input_event event)
 
 }
 
-void EventController::handleAbsEvents(input_event event)
+void EventController::handleAbsEvents(const input_event& event)
 {
     if (event.code == ABS_MT_SLOT)
     {
