@@ -8,4 +8,9 @@ add_executable(TouchScreenSupport main.cpp
         EventController.cpp
         EventController.h
         AbsEventController.cpp
-        AbsEventController.h)
+        AbsEventController.h
+        )
+
+
+
+target_link_libraries(TouchScreenSupport PRIVATE Utility)
