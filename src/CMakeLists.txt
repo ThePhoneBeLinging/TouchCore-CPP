@@ -2,15 +2,12 @@ cmake_minimum_required(VERSION 3.25)
 project(TouchScreenSupport)
 
 
-add_executable(TouchScreenSupport main.cpp
+add_library(TouchScreenSupport
         EventListener.cpp
-        EventListener.h
         EventController.cpp
-        EventController.h
         AbsEventController.cpp
-        AbsEventController.h
         )
 
 
-
+target_include_directories(TouchScreenSupport PUBLIC include)
 target_link_libraries(TouchScreenSupport PRIVATE Utility)
