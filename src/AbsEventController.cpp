@@ -10,7 +10,7 @@
 AbsEventController::AbsEventController() : activeSlot_(0)
 {
     // Change the value to allow for a different amount of fingers at the same time.
-    // eg. some screens might only handle 2 to 3.
+    // e.g. some screens might only handle 2 to 3.
     fingerPositions_.resize(5);
 }
 
@@ -90,5 +90,5 @@ void AbsEventController::handleEvent(const input_event& event)
             activeFingers++;
         }
     }
-    std::cout << "ACtive fingers: " << activeFingers << std::endl;
+    std::cout << "Active fingers: " << activeFingers << std::endl;
 }
