@@ -8,7 +8,7 @@
 #include <cstring>
 #include <cstdio>
 #include <sys/time.h>
-#include "EventListener.h"
+#include "TouchScreenSupport/EventListener.h"
 
 #include <stdexcept>
 
