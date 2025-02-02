@@ -68,12 +68,10 @@ void AbsEventController::handleEvent(const input_event& event)
         }
         case ABS_MT_TOUCH_MAJOR:
         {
-            // For now, I ignore this
             break;
         }
         case ABS_MT_WIDTH_MAJOR:
         {
-            // For now, I ignore this
             break;
         }
         default:

@@ -15,20 +15,20 @@ void EventController::notifyOfEvent(const input_event& event)
 {
     switch (event.type)
     {
-    case EV_SYN:
-        {
-            break;
+        case EV_SYN:
+            {
+                break;
+            }
+        case EV_KEY:
+            {
+                break;
+            }
+        case EV_ABS:
+            {
+                absEventController_->handleEvent(event);
+                break;
+            }
+        default:
+            std::cout << "Unknown Event: " << event.type << std::endl;
         }
-    case EV_KEY:
-        {
-            break;
-        }
-    case EV_ABS:
-        {
-            absEventController_->handleEvent(event);
-            break;
-        }
-    default:
-        std::cout << "Unknown Event: " << event.type << std::endl;
-    }
 }
