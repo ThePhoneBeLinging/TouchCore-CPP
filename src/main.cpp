@@ -28,18 +28,24 @@ int main()
         std::stringstream stream(line);
         auto* event = new input_event();
         std::string innerString;
-        bool first = true;
+        int index = 0;
         while (std::getline(stream, innerString,' '))
         {
-            if (first)
+            switch (index)
             {
-                first = false;
+            case 0:
                 event->type = std::stoi(innerString);
-            }
-            else
-            {
+                break;
+            case 1:
                 event->code = std::stoi(innerString);
+                break;
+            case 2:
+                event->value = std::stoi(innerString);
+                break;
+            default:
+                break;
             }
+            index++;
         }
         events.push_back(*event);
         delete event;
