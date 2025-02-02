@@ -19,6 +19,16 @@ void AbsEventController::handleEvent(const input_event& event)
     std::cout << "Starting event handling with: " << activeSlot_ << std::endl;
     switch (event.code)
     {
+        case ABS_X:
+        {
+            fingerPositions_[activeSlot_]->first = event.value;
+            break;
+        }
+        case ABS_Y:
+        {
+            fingerPositions_[activeSlot_]->second = event.value;
+            break;
+        }
         case ABS_MT_SLOT:
         {
             activeSlot_ = event.value;
@@ -54,6 +64,16 @@ void AbsEventController::handleEvent(const input_event& event)
             {
                 delete fingerPositions_[activeSlot_];
             }
+            break;
+        }
+        case ABS_MT_TOUCH_MAJOR:
+        {
+            // For now, I ignore this
+            break;
+        }
+        case ABS_MT_WIDTH_MAJOR:
+        {
+            // For now, I ignore this
             break;
         }
         default:

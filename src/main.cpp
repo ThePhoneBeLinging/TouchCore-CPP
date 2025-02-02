@@ -25,29 +25,37 @@ int main()
 
 
     while (std::getline(inputFile, line)) {
-        std::stringstream stream(line);
         auto* event = new input_event();
-        std::string innerString;
-        int index = 0;
-        while (std::getline(stream, innerString,' '))
+        try
         {
-            switch (index)
+            std::stringstream stream(line);
+
+            std::string innerString;
+            int index = 0;
+            while (std::getline(stream, innerString,' '))
             {
-            case 0:
-                event->type = std::stoi(innerString);
-                break;
-            case 1:
-                event->code = std::stoi(innerString);
-                break;
-            case 2:
-                event->value = std::stoi(innerString);
-                break;
-            default:
-                break;
+                switch (index)
+                {
+                case 0:
+                    event->type = std::stoi(innerString);
+                    break;
+                case 1:
+                    event->code = std::stoi(innerString);
+                    break;
+                case 2:
+                    event->value = std::stoi(innerString);
+                    break;
+                default:
+                    break;
+                }
+                index++;
             }
-            index++;
+            events.push_back(*event);
         }
-        events.push_back(*event);
+        catch (std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
         delete event;
     }
 
