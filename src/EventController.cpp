@@ -2,7 +2,7 @@
 // Created by eal on 28/01/25.
 //
 
-#include "TouchScreenSupport/EventController.h"
+#include "TouchCore-CPP/EventController.h"
 #include <iostream>
 #include <linux/input.h>
 

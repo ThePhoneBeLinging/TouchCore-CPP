@@ -2,7 +2,7 @@
 // Created by eal on 30/01/25.
 //
 
-#include "TouchScreenSupport/AbsEventController.h"
+#include "TouchCore-CPP/AbsEventController.h"
 #include <iostream>
 #include <ostream>
 
