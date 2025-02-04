@@ -16,6 +16,7 @@ AbsEventController::AbsEventController() : activeSlot_(0)
 void AbsEventController::handleEvent(const input_event& event)
 {
     std::cout << "Starting event handling with: " << activeSlot_ << std::endl;
+    std::lock_guard lockGuard(fingerMutex_);
     switch (event.code)
     {
         case ABS_X:
@@ -93,6 +94,7 @@ void AbsEventController::handleEvent(const input_event& event)
 std::vector<std::pair<int, int>> AbsEventController::getFingerPositions()
 {
     std::vector<std::pair<int, int>> fingerPositions;
+    std::lock_guard lockGuard(fingerMutex_);
     for (auto val : fingerPositions_)
     {
         fingerPositions.push_back(*val);
