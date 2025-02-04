@@ -32,3 +32,8 @@ void EventController::notifyOfEvent(const input_event& event)
             std::cout << "Unknown Event: " << event.type << std::endl;
         }
 }
+
+std::vector<std::pair<int, int>> EventController::getFingerPositions()
+{
+    return absEventController_->getFingerPositions();
+}

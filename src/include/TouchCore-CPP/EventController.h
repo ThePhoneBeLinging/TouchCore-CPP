@@ -15,6 +15,7 @@ class EventController
 public:
     EventController();
     void notifyOfEvent(const input_event& event);
+    std::vector<std::pair<int,int>> getFingerPositions();
 private:
     std::unique_ptr<AbsEventController> absEventController_;
 };

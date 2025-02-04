@@ -14,6 +14,7 @@ class AbsEventController
 public:
     AbsEventController();
     void handleEvent(const input_event& event);
+    std::vector<std::pair<int,int>> getFingerPositions();
 private:
     std::vector<std::pair<int,int>*> fingerPositions_;
     int activeSlot_;

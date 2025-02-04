@@ -89,3 +89,13 @@ void AbsEventController::handleEvent(const input_event& event)
     }
     std::cout << "Active fingers: " << activeFingers << std::endl;
 }
+
+std::vector<std::pair<int, int>> AbsEventController::getFingerPositions()
+{
+    std::vector<std::pair<int, int>> fingerPositions;
+    for (auto val : fingerPositions_)
+    {
+        fingerPositions.push_back(*val);
+    }
+    return fingerPositions;
+}
