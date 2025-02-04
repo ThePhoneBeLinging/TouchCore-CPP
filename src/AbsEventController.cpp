@@ -97,7 +97,10 @@ std::vector<std::pair<int, int>> AbsEventController::getFingerPositions()
     std::lock_guard lockGuard(fingerMutex_);
     for (auto val : fingerPositions_)
     {
-        fingerPositions.push_back(*val);
+        if (val != nullptr)
+        {
+            fingerPositions.push_back(*val);
+        }
     }
     return fingerPositions;
 }
